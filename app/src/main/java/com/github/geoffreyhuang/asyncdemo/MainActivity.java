@@ -8,11 +8,14 @@ import android.widget.Button;
 
 import com.github.geoffreyhuang.asyncdemo.asynctask.ShowPuppyActivity;
 import com.github.geoffreyhuang.asyncdemo.handler.HandlerUsagesActivity;
+import com.github.geoffreyhuang.asyncdemo.service.SaveMyLocationActivity;
+import com.github.geoffreyhuang.asyncdemo.service.SaveMyLocationService;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button mHandlerBtn;
     Button mAsyncTaskBtn;
+    Button mServiceBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mHandlerBtn = (Button) findViewById(R.id.btn_handler);
         mAsyncTaskBtn = (Button) findViewById(R.id.btn_asysnctask);
+        mServiceBtn = (Button) findViewById(R.id.btn_service);
+        mServiceBtn.setOnClickListener(this);
         mAsyncTaskBtn.setOnClickListener(this);
         mHandlerBtn.setOnClickListener(this);
     }
@@ -34,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_asysnctask:
                 intent.setClass(MainActivity.this, ShowPuppyActivity.class);
+                break;
+            case R.id.btn_service:
+                intent.setClass(MainActivity.this, SaveMyLocationActivity.class);
                 break;
         }
         startActivity(intent);
